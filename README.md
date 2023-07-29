@@ -25,4 +25,5 @@ to have a better idea of what I actually coded. Any questions just ask!
 - Any typos or mistakes, feel free to send a pull request.
 - any big datasets I call are called directly from a publicly available dropbox folder, so you will need an internet connection to run on your local machine.
 - Again, I did A LOT with this data. This is merely a showcase of some things I do. In particular, the NBA Roster Tool, which projects player performance
-by explicitly 
+by explicitly
+- Marcelo was here!
