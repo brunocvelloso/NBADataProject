@@ -12,7 +12,7 @@ This is meant mainly to show-case some of the many things I have done with NBA d
      --> this folder also shows how I scraped and collected the dataset. If you want to follow along, look at the "Master-NBA.R"
      data for a detailed guide of how I update my master dataset (it is quite detailed/complex. I do a lot of things)
      
-     --> I do not feel comfortable sharing the master dataset, even though it is all collected from public datasets. But if you want
+     --> I do not feel comfortable sharing the master dataset, even though it is all collected/scraped from public datasets. But if you want
      to replicate what I did in some manner, the code in "Master-NBA" should serve as a useful guide. The way it is structured is to take the (sometimes
      quite hefty) raw master data files and update it for any new games over time (I have a cron job that automatically updates it overnight). But you 
      can essentially just add a few lines of code to create this from scratch. All you need as input the game links data "NBA_ESPNgamelinks.RData"
