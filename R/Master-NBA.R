@@ -49,7 +49,7 @@ setwd(working)
 ######2. Code to create initial box score  and play by play data#######
 #######################################################################
 #NOTE: I already have initial datasets, so no need to run this (just if you want
-#to start from scratch)
+#to start from scratch). I EXCLUDED THESE FROM GITHUB REPOSITORY
 
 # #Download ESPN raw play by play and box score data
 # source("datadownload.R")
@@ -61,11 +61,11 @@ setwd(working)
 # #these are the main raw data files that will be updated and form the beginning of any additional
 # #code I run on top of this
 # #Outputs: nba_pbpCOMPLETE, nba_playerboxCOMPLETE, nba_teamboxCOMPLETE
-# source("completedata_part2.R.R")
+# source("completedata_part2.R")
 
 
 #######################################################################
-#########3. Code to add new game updates to master data################
+#########2. Code to add new game updates to master data################
 #######################################################################
 
 

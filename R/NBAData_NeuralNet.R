@@ -312,7 +312,7 @@ cat("\nSTEP 4b: Confusion Matrix for Logistic Reg (in-sample test) \n\n")
 print(tb_lr)
 cat("\n\n")
 
-cat("STEP 5: Calculate out-of-sample tests and compare results on many factors\n\n")
+cat("STEP 5: Calculate in-sample tests and compare results on many factors\n\n")
 calculate_stats2 <- function(tb, model_name,y_test,y_pred) {
   acc <- (tb[1] + tb[4])/(tb[1] + tb[2] + tb[3] + tb[4])
   recall <- tb[4]/(tb[4] + tb[3])
