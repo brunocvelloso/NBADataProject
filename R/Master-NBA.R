@@ -65,7 +65,7 @@ setwd(working)
 
 
 #######################################################################
-#########2. Code to add new game updates to master data################
+#########3. Code to add new game updates to master data################
 #######################################################################
 
 
@@ -160,9 +160,12 @@ source("OnOff_AdjPM.R")
 # save(repl_values,file="repl_values.RData")
 # save(currentranksTOT,file="currentranksTOT.RData")
 # ggsave("RAPMoverTime.png", w = 12, h = 6, dpi = 75) MAIN OUTPUT
+# save(regdata,file="regdataFORTOOL.RData")
 source("ComputeBestPlayers.R")
 
-#4. Create team-level variables as the season goes on 
+#######################################################################
+#########4. Create team-level variables as the season goes on #########
+#######################################################################
 
 #creates a bunch of basic team-level vairables for teams for every game
 #INPUTS:
@@ -321,7 +324,11 @@ source("FinalizeRegressionData.R")
 # save(seasondata,file="allregdata_FINALV2.RData")
 source("EmpiricalBayesTeamPerformance.R")
 
-#5. Run some regression models, and compare ability to predict game and player outcomes
+#######################################################################
+##5. Run some regression models, and compare ability to predict game###
+####and player outcomes ##############################################
+#######################################################################
+
 
 #INPUT: load("allregdata_FINALV2.RData")
 #OUTPUT:
@@ -331,4 +338,10 @@ source("LinRegModels.R")
 # source("AddPlayerData_foroldpreds.R") #if i want to backtest a model
 # source("GetOldPredictions.R") #compute estimates of current models for old games
 
+#######################################################################
+##6. Create data for NBA Roster Tool, which goes into python###########
+#######################################################################
 
+#6. Create the regression data for the NBA Roster Tool from R to feather, which then
+#goes into python
+source("CreateRegressionDataForNBARosterTool.RData")

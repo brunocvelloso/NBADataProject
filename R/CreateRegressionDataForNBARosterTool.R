@@ -15,7 +15,6 @@ library(selectr)
 library(xml2)
 library(rvest)
 library(jsonlite)
-#library("naniar")
 library("xlsx")
 library("writexl")
 library("haven")
@@ -53,10 +52,21 @@ library(ggrepel)
 library(scales)
 library(zoo)
 library(feather)
-setwd("/Users/ricardovelloso/Dropbox/Projects/NBAGambling")
+library("httr")
+#setwd(working)
 
-load("regdataFORTOOL.Rdata")
-load("vellplusmin.RData")
+
+#1. Load Relevant Packages and Set WD
+fileLinks <- c("regdataFORTOOL.Rdata", #created as output in "ComputerBestPlayers.R"
+               "vellplusmin.RData")
+for (i in fileLinks) {
+  link <- paste0("https://www.dropbox.com/scl/fo/51g9vud1seqtjmyl2gdxt/h/",i,"?rlkey=w73ql5hcbve241kau127t2a2h&dl=1",sep="")
+  download.file(link,i)
+  load(i)
+}
+#load("regdataFORTOOL.Rdata")
+#load("vellplusmin.RData")
+
 regdata <- regdata[!(regdata$PlayersFull=="Luka Doncic"& regdata$Forward_reg==1),]
 regdata <- regdata[!(regdata$PlayersFull=="Anthony Edwards"& regdata$Forward_reg==1),]
 regdata <- regdata %>% left_join(vellplusmin[,c("PlayerID","Date","VellosoPlusMinus_total","VellPMOff_PaceAdj","VellPMDef_PaceAdj","Repl_off","Repl_def")],by=c("PlayerID","Date"))
@@ -117,7 +127,13 @@ regdata_TOPROJ <- dplyr::select(regdata_TOPROJ,-SP_Season)
 
 #save(regdata_TOPROJ,file="regdata_TOPROJ.RData")
 
-load("modelbetaV1_PlayerData.RData")
+fileLinks <- c("modelbetaV1_PlayerData.RData")
+for (i in fileLinks) {
+  link <- paste0("https://www.dropbox.com/scl/fo/51g9vud1seqtjmyl2gdxt/h/",i,"?rlkey=w73ql5hcbve241kau127t2a2h&dl=1",sep="")
+  download.file(link,i)
+  load(i)
+}
+# load("modelbetaV1_PlayerData.RData")
 playerdata <- dplyr::select(playerdata,Date,Season,ID_team,GameID,PlayerID,Team,MIN,MIN.xy,`+/-`,MIN3,MINPG3,OnOffGame,RPMScore,ORPMScore,DRPMScore,FinalStatus,InclDummy1,ProjMINFinal)
 playerdata <- playerdata[playerdata$MIN>0,]
 playerdata <- dplyr::rename(playerdata,ID_Date=Date,SP_Season = Season,SP_GameID=GameID,ID_PlayerID=PlayerID,SP_Team = Team,WGT_MIN = MIN,WGT_MIN.xy = MIN.xy,SP_PlusMin = `+/-`,WGT_MIN3 = MIN3,SP_MINPG3 = MINPG3,SP_OnOffGame=OnOffGame,SP_RPMScore=RPMScore,SP_ORPMScore=ORPMScore,SP_DRPMScore=DRPMScore,SP_FinalStatus=FinalStatus,SP_InclDummy1=InclDummy1,SP_ProjMINFinal=ProjMINFinal)

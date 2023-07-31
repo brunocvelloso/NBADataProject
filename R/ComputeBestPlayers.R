@@ -799,5 +799,5 @@ dfchart %>%
 
 ggsave("RAPMoverTime.png", w = 12, h = 6, dpi = 75)
 
-
+save(regdata,file="regdataFORTOOL.RData")
 
