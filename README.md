@@ -7,7 +7,7 @@ This is meant mainly to show-case some of the many things I have done with NBA d
 # Organization
 - As mentioned above, main outputs are in ".ipynb" files.
 - "py" folder contains all python code (mainly for the NBA Roster Tool, which is described in NBARosterTool.ipynb)
-- "R" folder contains all R scripts (used for R_ExamplesResults.ipynb and NueralNetwordsExample_NBAData.ipynb)
+- "R" folder contains all R scripts (used for R_ExampleResults.ipynb and NeuralNetwordsExample_NBAData.ipynb)
      
      --> this folder also shows how I scraped and collected the dataset. If you want to follow along, look at the "Master-NBA.R"
      data for a detailed guide of how I update my master dataset (it is quite detailed/complex. I do a lot of things)
@@ -15,8 +15,8 @@ This is meant mainly to show-case some of the many things I have done with NBA d
      --> I do not feel comfortable sharing the master dataset, even though it is all collected/scraped from public datasets. But if you want
      to replicate what I did in some manner, the code in "Master-NBA" should serve as a useful guide. The way it is structured is to take the (sometimes
      quite hefty) raw master data files and update it for any new games over time (I have a cron job that automatically updates it overnight). But you 
-     can essentially just add a few lines of code to create this from scratch. All you need as input the game links data "NBA_ESPNgamelinks.RData"
-     which is included in the repo
+     can essentially just add a few lines of code to create this from scratch. All you need as input the are game links, which are in "NBA_ESPNgamelinks.RData". 
+     This file is included in the repo (in "R" folder). So have at it if you are interested in replicating the scraping yourself!
 
 
 # OTHER NOTES
@@ -26,4 +26,3 @@ to have a better idea of what I actually coded. Any questions just ask!
 - any big datasets I call are called directly from a publicly available dropbox folder, so you will need an internet connection to run on your local machine.
 - Again, I did A LOT with this data. This is merely a showcase of some things I do. In particular, the NBA Roster Tool, which projects player performance
 by explicitly
-- Marcelo was here!
