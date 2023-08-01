@@ -479,8 +479,8 @@ names(repl_values2) <- c("Date","Repl_offExp3Norm","Repl_defExp3Norm","Repl_offN
 
 repl_values <- repl_values %>% left_join(repl_values2,by=c("Date")) %>% ungroup()
 
-save(vellplusmin,file="vellplusmin.RData")
-save(repl_values,file="repl_values.RData")
+#save(vellplusmin,file="vellplusmin.RData")
+#save(repl_values,file="repl_values.RData")
 
 currentranks <- vellplusmin[vellplusmin$Date==datevec&vellplusmin$MIN>100&!is.na(vellplusmin$MIN>100),]
 currentranks <- left_join(currentranks,rollingboxALL[,c("PlayerID","Date","MIN.y")]) %>% ungroup()
@@ -510,7 +510,7 @@ currentranksTOT$YTDChgTot <- currentranksTOT$VellosoPlusMinus_total-currentranks
 currentranksTOT$YTDChgOff <- currentranksTOT$VellosoPlusMinus_off-currentranksTOT$VellPMOff_YearStart
 currentranksTOT$YTDChgDef <- currentranksTOT$VellosoPlusMinus_def-currentranksTOT$VellPMDef_YearStart
 currentranksTOT <- left_join(currentranksTOT,regdata[regdata$Date==max(regdata$Date),c("PlayersFull","RAPM5_total","RAPM5_off","RAPM5_def")])
-save(currentranksTOT,file="currentranksTOT.RData")
+#save(currentranksTOT,file="currentranksTOT.RData")
 
 regdata <- regdata %>% left_join(vellplusmin[,c("PlayerID","Date","VellosoPlusMinus_off","VellosoPlusMinus_def")],by=c("PlayerID","Date"))
 regdata$off_error <- regdata$VellosoPlusMinus_off-regdata$RAPM1_offFWD
@@ -661,7 +661,7 @@ chart <- dfchart %>%
                   fontface=2,
                   color='blue',
                   alpha = 1,
-                  nudge_y = .01,
+                  nudge_y = -.01,
                   segment.size = .1
   ) +
   geom_line(data = . %>% filter((PlayersFull=="Kevin Durant")) ,
@@ -688,7 +688,7 @@ chart <- dfchart %>%
                   fontface=2,
                   color='dark grey',
                   alpha = 1,
-                  nudge_y = -1,
+                  nudge_y = 0.5,
                   nudge_x = .5,
                   segment.size = .1
   ) +
@@ -703,7 +703,7 @@ chart <- dfchart %>%
                   color='chartreuse2',
                   alpha = 1,
                   nudge_y = -1,
-                  nudge_x = .15,
+                  nudge_x = 1,
                   segment.size = .1
   ) +
   geom_line(data = . %>% filter((PlayersFull=="Russell Westbrook")) ,
@@ -742,7 +742,7 @@ chart <- dfchart %>%
                   fontface=2,
                   color='orange',
                   alpha = 1,
-                  nudge_y = .1,
+                  nudge_y = .3,
                   segment.size = .1
   ) +
   theme_bruno() +
